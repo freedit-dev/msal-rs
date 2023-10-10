@@ -1,0 +1,23 @@
+[package]
+name = "msal-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["sangonzal <https://github.com/sangonzal", "freedit <https://github.com/freedit-dev>"]
+description = "Microsoft Authentication Library for Rust"
+license = "MIT"
+repository = "https://github.com/freedit-dev/msal-rs"
+readme = "README.md"
+keywords = ["msal", "microsoft", "authentication", "Azure", "Active Directory"]
+categories = ["authentication", "azure", "active-directory"]
+include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
+
+[dependencies]
+base64 = "0.21"
+hex = "0.4"
+jsonwebtoken = "8.3"
+reqwest = { version = "0.11", features = ["json", "rustls-tls"], default-features = false }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+uuid = { version = "1.4", features = ["v4"] }
