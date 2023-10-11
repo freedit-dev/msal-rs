@@ -9,7 +9,7 @@ pub(crate) struct Authority {
 }
 
 impl Authority {
-    pub async fn new(authority_url: &str) -> Result<Self, Error> {
+    pub(crate) async fn new(authority_url: &str) -> Result<Self, Error> {
         let response =
             reqwest::get(&format!("{}{}", authority_url, TENANT_DISCOVERY_ENDPOINT)).await?;
         let response: TenantDiscoveryResponse = response.json().await?;
