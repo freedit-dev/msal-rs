@@ -14,7 +14,7 @@ include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 [dependencies]
 base64 = "0.21"
 hex = "0.4"
-jsonwebtoken = "8.3"
+jsonwebtoken = "9.0"
 reqwest = { version = "0.11", features = ["json", "rustls-tls"], default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
