@@ -12,7 +12,7 @@ categories = ["authentication", "azure", "active-directory"]
 include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 
 [dependencies]
-base64 = "0.21"
+base64 = "0.22"
 hex = "0.4"
 jsonwebtoken = "9.1"
 reqwest = { version = "0.11", features = ["json", "rustls-tls"], default-features = false }
