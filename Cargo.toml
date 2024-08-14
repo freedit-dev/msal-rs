@@ -2,7 +2,10 @@
 name = "msal-rs"
 version = "0.1.1"
 edition = "2021"
-authors = ["sangonzal <https://github.com/sangonzal", "freedit <https://github.com/freedit-dev>"]
+authors = [
+    "sangonzal <https://github.com/sangonzal",
+    "freedit <https://github.com/freedit-dev>",
+]
 description = "Microsoft Authentication Library for Rust"
 license = "MIT"
 repository = "https://github.com/freedit-dev/msal-rs"
@@ -15,7 +18,10 @@ include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 base64 = "0.21"
 hex = "0.4"
 jsonwebtoken = "9.1"
-reqwest = { version = "0.11", features = ["json", "rustls-tls"], default-features = false }
+reqwest = { version = "0.12", features = [
+    "json",
+    "rustls-tls",
+], default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
 uuid = { version = "1.4", features = ["v4"] }
