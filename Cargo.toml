@@ -11,7 +11,7 @@ license = "MIT"
 repository = "https://github.com/freedit-dev/msal-rs"
 readme = "README.md"
 keywords = ["msal", "microsoft", "authentication", "Azure"]
-categories = ["authentication", "azure", "active-directory"]
+categories = ["authentication"]
 include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 
 [dependencies]
