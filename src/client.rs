@@ -6,6 +6,7 @@ use std::{
 use authority::Authority;
 use base64::{engine::general_purpose, Engine};
 use jsonwebtoken::{encode, Algorithm, EncodingKey, Header};
+use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
@@ -53,6 +54,7 @@ pub struct ConfidentialClient {
     client_id: String,
     authority: Authority,
     credential: ClientCredential,
+    http_client: Client,
 }
 
 impl ConfidentialClient {
@@ -61,16 +63,26 @@ impl ConfidentialClient {
         authority: &str,
         credential: ClientCredential,
     ) -> Result<ConfidentialClient, Error> {
-        let authority = Authority::new(authority).await?;
+        ConfidentialClient::with_http_client(client_id, authority, credential, Client::new()).await
+    }
+
+    pub async fn with_http_client(
+        client_id: &str,
+        authority: &str,
+        credential: ClientCredential,
+        http_client: Client,
+    ) -> Result<ConfidentialClient, Error> {
+        let authority = Authority::new(authority, &http_client).await?;
 
         Ok(ConfidentialClient {
             client_id: client_id.to_string(),
             authority,
             credential,
+            http_client,
         })
     }
 
-    pub async fn acquire_token_silent(&mut self, scopes: &[&str]) -> Result<TokenResponse, Error> {
+    pub async fn acquire_token_silent(&self, scopes: &[&str]) -> Result<TokenResponse, Error> {
         let mut params = HashMap::new();
 
         let assertion;
@@ -114,7 +126,8 @@ impl ConfidentialClient {
         params.insert(SCOPES, &scope);
         params.insert(GRANT_TYPE, CLIENT_CREDENTIALS_GRANT);
 
-        let response = reqwest::Client::new()
+        let response = self
+            .http_client
             .post(&self.authority.token_endpoint)
             .form(&params)
             .send()
