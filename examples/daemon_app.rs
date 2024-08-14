@@ -17,7 +17,7 @@ async fn main() {
     let client_id = "uuid";
     let scopes = vec!["https://graph.microsoft.com/.default"];
 
-    let mut app = ConfidentialClient::new(client_id, authority, client_credential)
+    let app = ConfidentialClient::new(client_id, authority, client_credential)
         .await
         .unwrap();
 
