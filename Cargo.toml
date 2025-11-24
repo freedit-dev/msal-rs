@@ -17,7 +17,7 @@ include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 [dependencies]
 base64 = "0.22"
 hex = "0.4"
-jsonwebtoken = "9.1"
+jsonwebtoken = "10.2"
 reqwest = { version = "0.12", features = [
     "json",
     "rustls-tls",
