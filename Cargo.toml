@@ -1,7 +1,7 @@
 [package]
 name = "msal-rs"
 version = "0.1.2"
-edition = "2021"
+edition = "2024"
 authors = [
     "sangonzal <https://github.com/sangonzal",
     "freedit <https://github.com/freedit-dev>",
@@ -17,7 +17,7 @@ include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 [dependencies]
 base64 = "0.22"
 hex = "0.4"
-jsonwebtoken = "9.1"
+jsonwebtoken = { version = "10.2.0", default-features = false, features = ["rust_crypto", "use_pem"] }
 reqwest = { version = "0.12", features = [
     "json",
     "rustls-tls",

@@ -4,13 +4,13 @@ use std::{
 };
 
 use authority::Authority;
-use base64::{engine::general_purpose, Engine};
-use jsonwebtoken::{encode, Algorithm, EncodingKey, Header};
+use base64::{Engine, engine::general_purpose};
+use jsonwebtoken::{Algorithm, EncodingKey, Header, encode};
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use crate::{authority, Error};
+use crate::{Error, authority};
 
 const CLIENT_ID: &str = "client_id";
 const SCOPES: &str = "scope";

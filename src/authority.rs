@@ -12,7 +12,7 @@ pub(crate) struct Authority {
 impl Authority {
     pub(crate) async fn new(authority_url: &str, client: &Client) -> Result<Self, Error> {
         let response = client
-            .get(&format!("{}{}", authority_url, TENANT_DISCOVERY_ENDPOINT))
+            .get(format!("{}{}", authority_url, TENANT_DISCOVERY_ENDPOINT))
             .send()
             .await?;
         let response: TenantDiscoveryResponse = response.json().await?;
