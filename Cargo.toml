@@ -18,7 +18,7 @@ include = ["src/**/*", "examples/**/*", "LICENSE", "README.md"]
 base64 = "0.22"
 hex = "0.4"
 jsonwebtoken = { version = "10.2.0", default-features = false, features = ["rust_crypto", "use_pem"] }
-reqwest = { version = "0.12", features = [
+reqwest = { version = "0.13", features = [
     "json",
     "rustls-tls",
 ], default-features = false }
